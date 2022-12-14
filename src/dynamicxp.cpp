@@ -25,7 +25,7 @@ class spp_dynamic_xp_rate : public PlayerScript
         void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/) override
        {
 
-        if (player->getClass() != CLASS_DEATH_KNIGHT && sConfigMgr->GetBoolDefault("Dynamic.XP.Rate", true))
+        if (player->getClass() != CLASS_DEATH_KNIGHT && sConfigMgr->GetOption<bool>("Dynamic.XP.Rate", true))
         
 	   {
            if (player->getLevel() <= 9)

@@ -24,7 +24,8 @@ class spp_dynamic_xp_rate : public PlayerScript
        }
         void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/) override
        {
-        if (sConfigMgr->GetBoolDefault("Dynamic.XP.Rate", true))
+
+        if (player->getClass() != CLASS_DEATH_KNIGHT && sConfigMgr->GetBoolDefault("Dynamic.XP.Rate", true))
         
 	   {
            if (player->getLevel() <= 9)
@@ -42,11 +43,11 @@ class spp_dynamic_xp_rate : public PlayerScript
            else if (player->getLevel() <= 49)
             amount *= sConfigMgr->GetIntDefault("Dynamic.XP.Rate.40-49", 5);
 
-           else if (player->getLevel() <= 59)
-            amount *= sConfigMgr->GetIntDefault("Dynamic.XP.Rate.50-59", 6);
+           else if (player->getLevel() <= 57)
+            amount *= sConfigMgr->GetIntDefault("Dynamic.XP.Rate.50-57", 6);
 
-           else if (player->getLevel() <= 69)
-            amount *= sConfigMgr->GetIntDefault("Dynamic.XP.Rate.60-69", 7);
+           else if (player->getLevel() <= 67)
+            amount *= sConfigMgr->GetIntDefault("Dynamic.XP.Rate.60-67", 7);
 
            else if (player->getLevel() <= 79)
             amount *= sConfigMgr->GetIntDefault("Dynamic.XP.Rate.70-79", 8);
